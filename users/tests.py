@@ -1,5 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.urls import reverse, resolve
+from .usersforms import UserCreationForm
+from .views import SignUpView
 
 class UserTest(TestCase):
     def tesUser(self):
@@ -28,3 +31,25 @@ class UserTest(TestCase):
         self.assertTrue(superuser.is_active)
         self.assertTrue(superuser.is_staff)
         self.assertTrue(superuser.is_superuser)
+
+class SignUpTest(TestCase):
+    def setUp(self):
+        url = reverse('signup')
+        self.response = self.client.get(url)
+
+    def test_signUp(self):
+        self.assertEqual(self.response.status_code, 200)
+        self.assertContains(self.response, 'Sign Up')
+        self.assertTemplateUsed(self.response, 'signup.html')
+        self.assertNotContains(self.response, 'I am not included')
+
+    def test_signupForm(self):
+        form = self.response.context.get('form')
+        self.assertIsInstance(form, UserCreationForm)
+        self.assertContains(self.response, 'csrfmiddlewaretoken')
+        
+    def test_ViewSignUp(self):
+        view = resolve('/accounts/signup/')
+        self.assertEqual(
+            view.func.__name__, SignUpView.as_view().__name__ 
+        )

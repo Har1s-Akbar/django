@@ -3,5 +3,10 @@
 {% block title %}BookStore{% endblock title %}
 
 {% block content %}
-<h1>This is home page</h1>
+{% if user.is_authenticated %}
+<p>Hi, {{user.username}} !</p>
+<p>You can <a href={% url 'logout' %}>Log Out</a></p>
+{% else %}
+<p> You are not logged in <a href={% url 'login' %}>Log In</a></p>
+{% endif %}
 {% endblock content %}

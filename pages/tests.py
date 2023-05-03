@@ -12,7 +12,7 @@ class HomeTest(SimpleTestCase):
     def test_template(self):
         self.assertTemplateUsed(self.response, 'home.html')
     def testCorrectHtml(self):
-        self.assertContains(self.response, 'home')
+        self.assertContains(self.response, 'BookStore')
     def testWrongHtml(self):
         self.assertNotContains(self.response, 'Hi, I should not be on the page')
 
