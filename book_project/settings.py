@@ -41,11 +41,26 @@ INSTALLED_APPS = [
     #3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
+    'allauth',
+    'allauth.account',
 
     #local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 ]
+
+#allauth config
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackends',
+    'django.contrib.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #added
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -141,5 +156,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #New
 AUTH_USER_MODEL = 'users.CustomUser'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'

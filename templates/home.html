@@ -10,13 +10,13 @@
       </a>
       {% if user.is_authenticated %}
       <div>
-        <button class='btn btn-primary mx-2'><a href={% url 'logout' %} class='text-decoration-none text-reset'>Log Out</a></button>
+        <button class='btn btn-primary mx-2'><a href={% url 'account_logout' %} class='text-decoration-none text-reset'>Log Out</a></button>
         <button class='btn btn-primary'><a href={% url 'home' %} class='text-decoration-none text-reset'>Password Rest</a></button>  
       </div>
       {% else %}
       <div>
-        <button class='btn btn-primary mx-2'><a href={% url 'login' %} class='text-decoration-none text-reset'>Log In</a></button>
-        <button class='btn btn-primary'><a href={% url 'signup' %} class='text-decoration-none text-reset'>Sign Up</a></button>  
+        <button class='btn btn-primary mx-2'><a href={% url 'account_login' %} class='text-decoration-none text-reset'>Log In</a></button>
+        <button class='btn btn-primary'><a href={% url 'account_signup' %} class='text-decoration-none text-reset'>Sign Up</a></button>  
       </div>
       {% endif %}
     </div>
