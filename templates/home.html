@@ -3,10 +3,29 @@
 {% block title %}BookStore{% endblock title %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<p>Hi, {{user.username}} !</p>
-<p>You can <a href={% url 'logout' %}>Log Out</a></p>
-{% else %}
-<p> You are not logged in <a href={% url 'login' %}>Log In</a></p>
-{% endif %}
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid d-flex justify-content-between w-75 m-auto">
+      <a class="navbar-brand" href={% url 'home' %}>
+        Bookstore
+      </a>
+      {% if user.is_authenticated %}
+      <div>
+        <button class='btn btn-primary mx-2'><a href={% url 'logout' %} class='text-decoration-none text-reset'>Log Out</a></button>
+        <button class='btn btn-primary'><a href={% url 'home' %} class='text-decoration-none text-reset'>Password Rest</a></button>  
+      </div>
+      {% else %}
+      <div>
+        <button class='btn btn-primary mx-2'><a href={% url 'login' %} class='text-decoration-none text-reset'>Log In</a></button>
+        <button class='btn btn-primary'><a href={% url 'signup' %} class='text-decoration-none text-reset'>Sign Up</a></button>  
+      </div>
+      {% endif %}
+    </div>
+  </nav>
+  <div class='m-3'>
+    {% if user.is_authenticated %}
+    <p class='fs-3'>Welcome {{user.username}} to our Book Store!!</p>
+    {% else %}
+    <p class='fs-3'>You Must Log In first</p>
+    {% endif %}
+  </div>
 {% endblock content %}
