@@ -11,7 +11,7 @@
       {% if user.is_authenticated %}
       <div>
         <button class='btn btn-primary mx-2'><a href={% url 'account_logout' %} class='text-decoration-none text-reset'>Log Out</a></button>
-        <button class='btn btn-primary'><a href={% url 'home' %} class='text-decoration-none text-reset'>Password Rest</a></button>  
+        <button class='btn btn-primary'><a href={% url 'account_reset_password' %} class='text-decoration-none text-reset'>Password Rest</a></button>  
       </div>
       {% else %}
       <div>

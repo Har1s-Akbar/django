@@ -1,0 +1,12 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}
+{% autoescape off %}
+{% user_display user as user_display %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hi, {{ user_display }}. Please confirm your email for login on {{ site_domain }}.
+
+To confirm follow {{ activate_url }}{% endblocktrans %}
+{% endautoescape %}
+{% endblock %}

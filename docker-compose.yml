@@ -5,7 +5,8 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment:
-      - SECRET_KEY = django-insecure-8c_8nl@wbjy)s618m#l5$$f@ygdktf%4w9^tvh2z8-p7^8qmd)2
+    - SECRET_KEY=8c_8nl@wbjy)s618m#l5$$f@ygdktf%4w9^tvh2z8-p7^8qmd)2
+    - DEBUG=1
     volumes:
       - .:/code
     ports:

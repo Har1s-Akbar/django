@@ -20,10 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8c_8nl@wbjy)s618m#l5$f@ygdktf%4w9^tvh2z8-p7^8qmd)2'
-
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = []
 
@@ -37,26 +36,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
 
     #3rd Party
     'crispy_forms',
     'crispy_bootstrap5',
     'allauth',
-    'allauth.account', 
+    'allauth.account',
 
     #local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 ]
 
+DEFAULT_FROM_EMAIL = 'admin@bookstore.com'
+
 #Allauth Config
+SITE_ID =1
+
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT = 'home'
-SITE_ID = 1
+
 AUTHENTICATION_BACKENDS = (
 'django.contrib.auth.backends.ModelBackend',
 'allauth.account.auth_backends.AuthenticationBackend',
 )
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_USERNAME_REQUIRED = False
