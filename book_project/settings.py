@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     #local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'book.apps.BookConfig',
 ]
 
 DEFAULT_FROM_EMAIL = 'admin@bookstore.com'

@@ -25,4 +25,5 @@ urlpatterns = [
 
     #local
     path('', include('pages.urls')),
+    path('book/', include('book.urls'))
 ]

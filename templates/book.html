@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class='text-center fw-light my-5 fs-1'>Books</h1>
+    <div class="row gy-5 w-75 m-auto">
+        {% for objects in object_list %}
+            <div class="col-6">
+                <div class="card" style="width: 25rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{objects.title}}</h5>
+                      <p class="card-text">Author - {{objects.author}}</p>
+                      <p class="card-text">Price - ${{objects.price}}</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}  
+    </div>
+  </div>
+
+{% endblock content %}
