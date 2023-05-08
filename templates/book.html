@@ -15,7 +15,7 @@
                       <h5 class="card-title">{{objects.title}}</h5>
                       <p class="card-text">Author - {{objects.author}}</p>
                       <p class="card-text">Price - ${{objects.price}}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <a href={% url 'book_detail' objects.pk %} class="btn btn-primary">Read More</a>
                     </div>
                   </div>
             </div>
