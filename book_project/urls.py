@@ -28,4 +28,4 @@ urlpatterns = [
     #local
     path('', include('pages.urls')),
     path('book/', include('book.urls'))
-]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
