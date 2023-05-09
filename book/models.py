@@ -14,6 +14,10 @@ class Book(models.Model):
     author = models.TextField(max_length=25)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     cover = models.ImageField(upload_to='cover/', blank=True)
+    class Meta:
+        permissions=[
+            ('special_status', 'read all books')
+        ]
 
 
     def __str__(self):
