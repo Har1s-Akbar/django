@@ -11,3 +11,4 @@ class BookDetail(LoginRequiredMixin, PermissionRequiredMixin ,DetailView):
     model = Book
     template_name = 'book_detail.html'
     login_url = 'account_login'
+    permission_required = 'book.special_status'
